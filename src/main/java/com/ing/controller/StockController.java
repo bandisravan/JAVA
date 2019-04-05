@@ -27,7 +27,7 @@ public class StockController {
 	
 	/* @GetMapping("/stock/{id}") */
 	@GetMapping("/stock")
-	public ResponseEntity<List<Stock>> getProductDetails() {
+	public ResponseEntity<List<Stock>> getStockDetails() {
 		List<Stock> stocklist  = stockService.getStockDetails();
 		return ResponseEntity.ok().body(stocklist);
 	}
