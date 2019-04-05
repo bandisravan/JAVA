@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="Stock_Transaction_Details")
+@Table(name="submit_stock")
 public class ReviewHistory {
 
 	@Id
