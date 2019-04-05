@@ -19,23 +19,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @RestController
 @EnableSwagger2
 @RequestMapping("api/v1/")
-//@RequestMapping("13.233.208.167:9080/bankING/api/v1/")
 public class StockController {
 	
 	@Autowired
 	StockService stockService;
 	
-	/* @GetMapping("/stock/{id}") */
+	
 	@GetMapping("/stock")
-	public ResponseEntity<List<Stock>> getStockDetails() {
+	public List<Stock> getStockDetails() {
 		List<Stock> stocklist  = stockService.getStockDetails();
-		return ResponseEntity.ok().body(stocklist);
+		return stocklist;
 	}
 
 	@GetMapping("/viewHistory/{id}")
-	public ResponseEntity<List<ReviewHistory>> viewHistory(@PathVariable String id) {
+	public List<ReviewHistory> viewHistory(@PathVariable String id) {
 		List <ReviewHistory> stock  = transactionService.viewHistory(Integer.parseInt(id));
-		return ResponseEntity.ok().body(stock);
+		return stock;
 	}
 
 }
