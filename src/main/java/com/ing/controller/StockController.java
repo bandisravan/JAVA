@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ing.domain.ReviewHistory;
 import com.ing.domain.Stock;
 import com.ing.service.StockService;
+import com.ing.service.TransactionService;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -25,6 +27,9 @@ public class StockController {
 	@Autowired
 	StockService stockService;
 	
+	@Autowired
+	TransactionService transactionService;
+	
 	/* @GetMapping("/stock/{id}") */
 	@GetMapping("/stock")
 	public ResponseEntity<List<Stock>> getStockDetails() {
@@ -37,8 +42,5 @@ public class StockController {
 		List <ReviewHistory> stock  = transactionService.viewHistory(Integer.parseInt(id));
 		return ResponseEntity.ok().body(stock);
 	}
-
-}
-
 
 }
