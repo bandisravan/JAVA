@@ -31,10 +31,14 @@ public class StockController {
 		List<Stock> stocklist  = stockService.getStockDetails();
 		return ResponseEntity.ok().body(stocklist);
 	}
-	/*public ResponseEntity<Stock> getProductDetails(@PathVariable Long id) {
-		Stock stock  = stockService.getStockDetails();
+
+	@GetMapping("/viewHistory/{id}")
+	public ResponseEntity<List<ReviewHistory>> viewHistory(@PathVariable String id) {
+		List <ReviewHistory> stock  = transactionService.viewHistory(Integer.parseInt(id));
 		return ResponseEntity.ok().body(stock);
-	}*/
+	}
+
+}
 
 
 }
