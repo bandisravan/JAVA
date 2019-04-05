@@ -24,6 +24,8 @@ public class StockController {
 	@Autowired
 	StockService stockService;
 	
+	@Autowired
+	TransactionService transactionService;
 	
 	@GetMapping("/stock")
 	public List<Stock> getStockDetails() {
