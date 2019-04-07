@@ -26,20 +26,10 @@ public class StockController {
 	@Autowired
 	StockService stockService;
 	
-	@Autowired
-	TransactionService transactionService;
-	
 
 	@GetMapping("/stock")
 	public List<Stock> getStockDetails() {
 		List<Stock> stocklist  = stockService.getStockDetails();
 		return stocklist;
 	}
-
-	@GetMapping("/viewHistory/{id}")
-	public List<ReviewHistory> viewHistory(@PathVariable String id) {
-		List <ReviewHistory> stock  = transactionService.viewHistory(Integer.parseInt(id));
-		return stock;
-	}
-
 }
