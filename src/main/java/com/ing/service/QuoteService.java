@@ -30,7 +30,7 @@ public class QuoteService {
 			//totalFees = .15 * quantity;
 			// totalPurchasedPrice = stockPrice + (.15 * quantity / 100);
 		}
-System.out.println("quantity * stockPrice "+quantity * stockPrice);
+
 		reviewHistoryObj.setId(reviewHistory.getId());
 		reviewHistoryObj.setStockName(reviewHistory.getStockName());
 		reviewHistoryObj.setStockPrice(stockPrice);
