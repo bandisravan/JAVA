@@ -44,10 +44,10 @@ public class SubmitStock implements Serializable {
 	private Long totalIncludingFee;
 	
 	
-	Date date1 = new Date();
-	SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	//Date date1 = new Date();
+	//SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     
-	private String date=dtf.format(date1).toString();
+	private String date="2019/04/07 19:15:00";
 	
 	public String getDate() {
 		return date;
