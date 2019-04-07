@@ -36,7 +36,13 @@ public class SubmitStock implements Serializable {
 	private Long totalFees;
 	
 	private Long totalIncludingFee;
-	private String date;
+	
+	
+	Date date1 = new Date();
+	SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    
+	private String date=dtf.format(date1).toString();
+	
 	public String getDate() {
 		return date;
 	}
