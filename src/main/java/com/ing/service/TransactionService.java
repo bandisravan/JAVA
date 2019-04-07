@@ -26,5 +26,12 @@ public class TransactionService {
 		return list;
 	}
 	
+	public List <ReviewHistory>  getAllHistory() {
+		// TODO Auto-generated method stub
+		List <ReviewHistory> list=repository.findAll();
+		
+		return list;
+	}
+	
 	
 }
