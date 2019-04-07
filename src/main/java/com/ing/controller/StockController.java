@@ -32,4 +32,32 @@ public class StockController {
 		List<Stock> stocklist  = stockService.getStockDetails();
 		return stocklist;
 	}
+	
+	@GetMapping("/hourlyCount")
+	public Integer getHourlyCount() {
+		DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date1 = null,d1,d2;
+		long diff,diffHours = 0;
+		Calendar calobj = Calendar.getInstance();
+		
+		String sDate1="2019/04/07 13:48:17";  //this string will come from db
+		
+	    try {
+			date1 = format.parse(sDate1);
+			d1 = format.parse(df.format(date1));
+			d2 = format.parse(df.format(calobj.getTime()));
+			diff = d2.getTime() - d1.getTime();
+			diffHours = diff / (60 * 60 * 1000) % 24;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}  
+	   
+		System.out.println("Date from DB  "+df.format(date1));
+		
+	    System.out.println("Current Date Time : "+df.format(calobj.getTime()));
+	    
+	    System.out.println("Diff----------->>>> "+diffHours);
+		return 0;
+	}
 }
