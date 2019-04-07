@@ -17,25 +17,32 @@ public class QuoteService {
 		int quantity = reviewHistory.getQuantity();
 		int stockId = reviewHistory.getStockId();
 		Double stockPrice = reviewHistory.getStockPrice();
-		Double totalPurchasedPrice;
+		Double totalPurchasedPrice = 0.0;
 		Double totalFees = 0.0;
+		Double fees = 0.0;
 
 		if (quantity <= 500) {
-			totalFees = .10 * quantity;
+			totalFees = quantity * 0.10;
+			//totalFees = .10 * quantity;
 			// totalPurchasedPrice=stockPrice+(.10*quantity);
 		} else {
-			totalFees = .10 * quantity;
-			//totalPurchasedPrice = stockPrice + (.15 * quantity / 100);
+			totalFees = (quantity / 100) * 0.15;
+			//totalFees = .15 * quantity;
+			// totalPurchasedPrice = stockPrice + (.15 * quantity / 100);
 		}
-		totalPurchasedPrice = stockPrice + totalFees;
-		
-		
+System.out.println("quantity * stockPrice "+quantity * stockPrice);
 		reviewHistoryObj.setId(reviewHistory.getId());
-		reviewHistoryObj.setTotalIncludingFee(totalPurchasedPrice);
-		reviewHistoryObj.setQuantity(quantity);
-		reviewHistoryObj.setStockPrice(stockPrice);
 		reviewHistoryObj.setStockName(reviewHistory.getStockName());
+		reviewHistoryObj.setStockPrice(stockPrice);
+		reviewHistoryObj.setQuantity(quantity);
+		reviewHistoryObj.setTotalStockPurchasePrice(quantity * stockPrice);
 		reviewHistoryObj.setTotalFees(totalFees);
+		reviewHistoryObj.setTotalIncludingFee((quantity * stockPrice) + totalFees);
+		
+		
+		
+		
+
 		return reviewHistoryObj;
 	}
 
